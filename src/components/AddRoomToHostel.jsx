@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../api";
+import { toast } from "sonner";
 
 export default function AddRoom() {
     const [roomType, setRoomType] = useState("fixed");
@@ -29,15 +30,17 @@ export default function AddRoom() {
         if (roomType === "fixed") {
             try {
                 await api.post("/room/create/fixedSize",fixedRoomData);
-                alert("Rooms created successfully!");    
+                toast.success("Rooms created successfully! 🎉");
             } catch (error) {
+                toast.error("Error creating rooms");
                 console.error("Error creating rooms:", error);
             }
         } else {
             try {
                 await api.post("/room/create",variableRoomData);
-                alert("Room created successfully!");    
+                toast.success("Rooms created successfully! 🎉");
             } catch (error) {
+                toast.error("Error creating room");
                 console.error("Error creating room:", error);
             }
         }

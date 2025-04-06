@@ -1,4 +1,6 @@
+import api from "@/api";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function FeesPayment() {
   const [formData, setFormData] = useState({
@@ -10,13 +12,19 @@ export default function FeesPayment() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Payment Data Submitted:", formData);
+    try {
+      await api.post("/feesPayment/payFees", formData);
+      toast.success("Paid successfully!");
+    } catch (error) {
+      toast.error("error while paying!");
+      console.error("Error while Paying:", error);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-950 text-white">
+    <div className="min-h-screen flex justify-center bg-gray-900 text-white">
       <div className="max-w-lg w-full p-6">
         <h1 className="text-3xl font-bold text-center mb-6">Fees Payment</h1>
 

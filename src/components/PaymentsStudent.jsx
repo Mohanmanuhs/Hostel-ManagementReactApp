@@ -38,24 +38,24 @@ export default function PaymentsStudent() {
                         <table className="w-full border border-gray-700 bg-gray-800 rounded-lg overflow-hidden">
                             <thead className="bg-gray-700 text-gray-300">
                                 <tr>
-                                    <th className="p-4 text-left">Name</th>
-                                    <th className="p-4 text-left">Email</th>
                                     <th className="p-4 text-left">Transaction Id</th>
+                                    <th className="p-4 text-left">Date</th>
                                     <th className="p-4 text-left">Amount</th>
-                                    <th className="p-4 text-center">Actions</th>
+                                    <th className="p-4 text-end">Stauts</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {payments.map((app) => (
-                                    <tr key={app.applicationId} className="border-b border-gray-700 hover:bg-gray-700 transition">
+                                    <tr key={app.transaction_id} className="border-b border-gray-700 hover:bg-gray-700 transition">
                                         <td className="p-4">{app.transaction_id}</td>
+                                        <td className="p-4">{app.date}</td>
                                         <td className="p-4">{app.amount}</td>
 
                                         <td className="p-4 text-end">
                                             <span
                                                 className={`px-3 py-1 rounded-full text-white text-sm ${app.paymentStatus === "PENDING"
                                                         ? "bg-yellow-500"
-                                                        : app.status === "VERIFIED"
+                                                        : app.paymentStatus === "VERIFIED"
                                                             ? "bg-green-700"
                                                             : "bg-red-500"
                                                     }`}

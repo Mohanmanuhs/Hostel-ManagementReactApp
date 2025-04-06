@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api";
+import { toast } from "sonner";
 
 export default function StaffApplications() {
     const [applications, setApplications] = useState([]);
@@ -23,7 +24,6 @@ export default function StaffApplications() {
     }, []);
 
     const handleAction = async (applicationId, status) => {
-        console.log(applicationId,status);
         try {
             await api.put(`/application/changeStatus`, { applicationId,status });
             setApplications((prev) =>
@@ -31,7 +31,9 @@ export default function StaffApplications() {
                     app.applicationId === applicationId ? { ...app, status } : app
                 )
             );
+            toast.success("status updated successfully");
         } catch (error) {
+            toast.error("Error creating rooms");
             console.error("Failed to update status", error);
         }
     };

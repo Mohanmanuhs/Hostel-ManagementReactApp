@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api";
+import { toast } from "sonner";
 
 export default function UpdateHostel({ hostelId }) {
     const [hostel, setHostel] = useState({
@@ -32,8 +33,9 @@ export default function UpdateHostel({ hostelId }) {
         e.preventDefault();
         try {
             await api.put("/hostel/update", hostel);
-            alert("Hostel updated successfully!");
+            toast.success("Hostel updated successfully!");
         } catch (error) {
+            toast.error("Error adding hostel!");
             console.error("Error adding hostel:", error);
         }
     };

@@ -1,4 +1,6 @@
 import React from 'react'
+import logo from "../assets/image.png"
+
 
 export default function Footer() {
     return (
@@ -8,8 +10,8 @@ export default function Footer() {
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
                             <a href="https://flowbite.com/" className="flex items-center">
-                                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
-                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+          <img src={logo} width={45} alt="" />
+                                <span className="self-center text-2xl p-4 font-semibold whitespace-nowrap dark:text-white">StayEase</span>
                             </a>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -17,7 +19,7 @@ export default function Footer() {
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="https://flowbite.com/" className="hover:underline">Flowbite</a>
+                                        <a href="https://flowbite.com/" className="hover:underline">StayEase</a>
                                     </li>
                                     <li>
                                         <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>

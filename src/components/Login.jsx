@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { useAuth } from "../AuthProvider";
+import { toast } from "sonner";
 
 
 export default function Login() {
@@ -10,19 +11,24 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const response = await api.post("/user/login", 
-                { email, password },{ withCredentials: true }
+                { email, password }, { withCredentials: true }
             );
-            alert("User Login successfully!");
-            localStorage.setItem("userRole",response.data.role);
+            
+            localStorage.setItem("userRole", response.data.role);
             setUserRole(response.data.role);
+            toast.success("Login successful! 🎉");
+            
             navigate("/");
         } catch (err) {
-            console.error("Error creating user:", err);
+            console.error("Error logging in:", err);
+            toast.error("Invalid email or password");
         }
     };
 

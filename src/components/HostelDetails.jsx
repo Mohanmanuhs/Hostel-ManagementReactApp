@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import api from "../api";
 import { useEffect, useState } from "react";
 import { Bed, IndianRupee, Mail, MapPin, Phone } from "lucide-react";
+import { toast } from "sonner";
 
 export default function HostelDetails() {
     const [hostel, setHostel] = useState([]);
@@ -13,8 +14,10 @@ export default function HostelDetails() {
     const handleBtnClick = (id) => {
         try {
             api.post(`application/create/${id}`);
+            toast.success("applied successfully");
             setCheckApplied(true);
         } catch (err) {
+            toast.error("failed to apply");
             console.log("error occured", err);
         }
     };

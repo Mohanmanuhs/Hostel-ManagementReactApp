@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api";
+import { toast } from "sonner";
 
 export default function FoodPage() {
   const [stdCount, setStdCount] = useState(null);
@@ -20,9 +21,10 @@ export default function FoodPage() {
     try {
       api.put(`food/clearCount`);
       setStdCount(0);
-      alert("Count cleared successfully!");
+      toast.success("Count cleared successfully!");
     } catch (err) {
       console.log("Failed to load applications.");
+      toast.error("Failed");
     }
   };
 

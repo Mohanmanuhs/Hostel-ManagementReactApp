@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthProvider";
+import { toast } from "sonner";
 
 export default function HostelForm() {
     const [hostel, setHostel] = useState({
@@ -26,12 +27,13 @@ export default function HostelForm() {
         try {
             
             await api.post("/hostel/create",hostel);
-            alert("Hostel added successfully!");
+            toast.success("Hostel created successfully!");
             localStorage.setItem("userRole","USTAFF");
             setUserRole("USTAFF")
             navigate("/");
 
         } catch (error) {
+            toast.error("Error in creating hostel!");
             console.error("Error adding hostel:", error);
         }
     };

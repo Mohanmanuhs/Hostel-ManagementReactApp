@@ -29,7 +29,7 @@ export default function RoomGrid() {
                         className="p-4 bg-gray-800 text-white cursor-pointer hover:shadow-lg transition-all"
                         onClick={() => setSelectedRoom(room)}
                     >
-                        <p className="text-lg font-semibold">Room {room.roomNo}</p>
+                        <p className="text-lg text-center font-semibold">{room.roomNo}</p>
                     </Card>
                 ))}
             </div>
