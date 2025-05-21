@@ -2,6 +2,11 @@
 
 This is a frontend application built using React and Tailwind CSS. It provides a responsive user interface for managing hostel operations such as viewing hostel details, adding students to rooms, and managing room availability. The frontend communicates with the StayEase backend via REST APIs using Axios.
 
+
+## Server Link
+  https://github.com/Mohanmanuhs/Hostel-Management
+
+  
 ## Technologies Used
 
 - **VS Code**: The primary IDE for client-side JavaScript and React development.
@@ -50,7 +55,7 @@ This is a frontend application built using React and Tailwind CSS. It provides a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Mohanmanuhs/MyVolunteerApi.git
+   git clone https://github.com/Mohanmanuhs/Hostel-ManagementReactApp.git
    ```
 
 2. Install dependencies:
